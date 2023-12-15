@@ -59,7 +59,7 @@ class PluginTest extends Dsl2Spec{
     def 'should execute a function' () {
         when:
         def SCRIPT = '''
-            include {randomString} from 'plugin/nf-plugin-template'
+            include {randomString} from 'plugin/nf-plugin-javatemplate'
             channel
                 .of( randomString(20) )      
             '''

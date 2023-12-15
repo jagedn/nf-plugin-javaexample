@@ -1,57 +1,33 @@
 # Nextflow Plugin template
 
-A template for Nextflow plugin
-
-This template can be util when you want to create (and publish) a plugin.
-
-## Instructions
-
-### download
-
-Download and unzip this repository (no clone, only download) in a directory with the name of your new plugin, i.e.
-`nf-my-awesome-plugin`
-
-### config
-
-In this new repository adjust these files:
-
-```
-.nf-plugin.gradle
-
-nextflowPlugin{
-    githubOrganization = 'YOUR_GITHUB_ACCOUNT'    
-}
-```
-
-`githubOrganization` is used in case you will publish in GitHub your plugin.
-
-
-### dependencies
-
-Also in this file add your dependencies 
-
-For example:
-
-```
-.nf-plugin.gradle
-
-dependencies {
-    implementation 'org.apache.poi:poi:5.2.4'
-    implementation 'org.apache.poi:poi-ooxml:5.2.4'    
-}
-```
-
-### source
-
-Rename `src/main/groovy/com/nextflow/plugin` directory and `ExamplePlugin.groovy` file with the package and name of your plugin
+A Nextflow's plugin template in Java
 
 ## Build
 
-And "this is all". You can build the plugin running `./gradlew build` for example
+`./gradlew build`
 
-## Nextflow Tasks
+## Install
 
-In order to generate the required artifacts by Nextflow you can run `./gradlew jsonPlugin`
+`./gradlew unzipPlugin`
 
-This task will generate the `zip` and `json` files required by Nextflow
+This task will build and install the plugin into your $HOME/.nextflow/plugins directory
+
+## Test
+
+`nextflow run example.nf -plugins nf-plugin-javatemplate@0.0.1`
+
+```shell
+N E X T F L O W  ~  version 23.10.0
+Launching `example.nf` [pedantic_wescoff] DSL2 - revision: 7846a5069f
+AOXRNWYMWG
+```
+
+## Debug
+
+- Create a remote debug in your IDE (tested with Intellij)
+- set a breakpoint, for example in ExampleFucntions line 31
+- execute `nextflow -remote-debug run example.nf -plugins nf-plugin-javatemplate@0.0.1`
+- attach the debug to the process
+
+a few seconds later the breakpoint will be reached and the pipeline will be paused
 
